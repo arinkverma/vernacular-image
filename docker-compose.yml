@@ -1,0 +1,20 @@
+version: "2" 
+services:
+  web:
+    image: "vernacular-image:latest"
+    environment:
+      - RQ_DASHBOARD_REDIS_URL=redis://redis:6379
+      - RQ_DASHBOARD_REDIS_HOST=redis
+      - RQ_DASHBOARD_REDIS_PORT=6379
+    ports:
+      - "8080:8080"
+    command: 
+      - "/vernacular_image/start.sh"
+      - "server"
+  worker:
+    image: "vernacular-image:latest"
+    command: 
+      - "/vernacular_image/start.sh"
+      - "worker"
+  redis:
+    image: "redis:alpine"
