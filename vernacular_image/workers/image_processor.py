@@ -1,15 +1,29 @@
-from wand.image import Image
-from wand.display import display
+from wand.image import Image 
+from wand.drawing import Drawing 
+from wand.color import Color 
+from redis import Redis
+
+
+redisStore = Redis(host='redis', port=6379, db=1)
+
 
 class ImageProcessor(object):
 
     @classmethod
-    def create_banner(cls, x, y):
-        with Image(filename='/vernacular_image/workers/lisa.jpg') as img:
-            print(img.size)
-            for r in 1, 2, 3:
-                with img.clone() as i:
-                    i.resize(int(i.width * r * 0.25), int(i.height * r * 0.25))
-                    i.rotate(90 * r)
-                    i.save(filename='lisa-{0}.jpg'.format(r))
-        return x+y
+    def create_banner(cls, config, language):
+        title = config["title"][language]
+        font = config["fonts"][language]
+        style = config["style"]
+        with Drawing() as draw: 
+            with Image(filename='/vernacular_image/asset/{}.png'.format(config["id"])) as image: 
+                draw.font = '/vernacular_image/asset/fonts/{}'.format(font)
+                draw.font_size = 160
+                draw.fill_color = style["fill_color"]
+                draw.stroke_color = style["stroke_color"]
+                draw.stroke_width = style.get("stroke_width",2)
+                draw.text_alignment = "center"
+                draw.text(style["x"], style["y"], title) 
+                draw(image) 
+                filename = "/media/{}_{}.png".format(config["id"], language)
+                image.save(filename = filename)
+                redisStore.set("idx:{}:{}".format(config["id"], language), filename)

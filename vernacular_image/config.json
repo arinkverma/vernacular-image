@@ -1,0 +1,66 @@
+[{
+  "id": 1,
+  "style": {
+    "fill_color": "white",
+    "stroke_color": "black",
+    "x": 512,
+    "y": 900
+  },
+  "title": {
+    "hindi": "जोकर",
+    "english": "Joker"
+  },
+  "fonts": {
+    "hindi": "NotoSans-Bold.ttf",
+    "english": "NotoSans-Bold.ttf"
+  }
+}, {
+  "id": 2,
+  "style": {
+    "fill_color": "white",
+    "stroke_color": "white",
+    "stroke_width": 5,
+    "x": 512,
+    "y": 200
+  },
+  "title": {
+    "hindi": "छलांग",
+    "english": "CHHALAANG"
+  },
+  "fonts": {
+    "hindi": "NotoSans-Bold.ttf",
+    "english": "FingerPaint-Regular.ttf"
+  }
+}, {
+  "id": 3,
+  "style": {
+    "fill_color": "#a60c0c",
+    "stroke_color": "black",
+    "x": 512,
+    "y": 900
+  },
+  "title": {
+    "hindi": "थी पावर",
+    "english": "THE POWER"
+  },
+  "fonts": {
+    "hindi": "Mukta-Medium.ttf",
+    "english": "Mukta-Medium.ttf"
+  }
+}, {
+  "id": 4,
+  "style": {
+    "fill_color": "white",
+    "stroke_color": "black",
+    "x": 512,
+    "y": 900
+  },
+  "title": {
+    "hindi": "वॉर",
+    "english": "WAR"
+  },
+  "fonts": {
+    "hindi": "NotoSans-Bold.ttf",
+    "english": "FugazOne-Regular.ttf"
+  }
+}]
